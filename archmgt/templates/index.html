@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title>档案管理系统</title>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css"href="/static/easyui/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css"href="/static/easyui/themes/icon.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/main.css" />
+</head>
+<body class="easyui-layout" style="margin: auto;">
+
+<div data-options="region:'north',title:'header',split:false,noheader:true" style="height:60px;background: #666;">
+	<div class="logo"><img src="/static/img/logo1.png" height="50" width="160"></div>
+    {% if username is None %}
+        <div class="logout">
+        &nbsp;<a href="#" onclick="login.login();">管理员登录</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    {% else %}
+        <div class="logout">&nbsp;您好,{{ username }}
+        &nbsp;|&nbsp;<a href="#" onclick="home.pwd();">设置</a>
+        &nbsp;|&nbsp;<a href="/archmgt/logout/">退出管理</a>
+        </div>
+    {% endif %}
+
+</div>
+<div data-options="region:'south',title:'footer',split:false,noheader:true" style="height:35px;line-height: 30px;text-align: center;">
+	© 2018 QYTC - 群宇科技有限公司
+</div>
+<div data-options="region:'west',title:'系统菜单',split:true" style="width:180px;padding: 10px;">
+	<ul id="nav"></ul>
+</div>
+<div data-options="region:'center'" style="overflow: hidden; padding:5px;background:#eee;">
+	<div id="tabs">
+		<div title="起始页" style="padding: 0 10px;display: block;">
+			<div style="margin-top: 20%;">
+                <div style="text-align: center"><img src="/static/img/logo1.png" width="246" height="52"></div>
+                <div style="text-align: center"><h3>服务器版本：1.0.0</h3></div>
+                <div style="text-align: center">© 2018 QYTC</div>
+            </div>
+		</div>
+	</div>
+</div>
+<div id="pwd"class="easyui-dialog" title="修改密码" style="width:330px;height:210px;"
+        data-options="resizable:true,modal:true,closed: true">
+        <div  style="padding:15px 35px;">
+        <table>
+            <tr>
+            <td>旧密码:</td>
+            <td><input name="oldpwd" id="oldpwd" type="password" ></input></td>
+            </tr>
+            <tr>
+            <td>新密码:</td>
+            <td><input name="password1" id="password1" type="password"></input></td>
+            </tr>
+            <tr>
+            <td>密码确认:</td>
+            <td><input name="password2" id="password2" type="password"></input></td>
+            </tr>
+        </table>
+        <br>
+        <button id="is1" onclick="home.commit()">提交</button>
+        <button id="is2" onclick="home.redo()">取消</button>
+        </div>
+</div>
+<div id="login"class="easyui-dialog" title="管理员登录" style="width:360px;height:180px;"
+        data-options="resizable:true,modal:true,closed: true">
+        <div  style="padding:15px 35px;">
+        <table>
+            <tr>
+            <td>用户名:</td>
+            <td><input name="username" id="username" type="text" ></input></td>
+            </tr>
+            <tr>
+            <td>密码:</td>
+            <td><input name="password" id="password" type="password"></input></td>
+            </tr>
+        </table>
+        <br>
+        <button id="is3" onclick="login.commit()">登录</button>
+        <button id="is4" onclick="login.redo()">取消</button>
+        </div>
+</div>
+<script type="text/javascript" src="/static/easyui/jquery.min.js"></script>
+<script type="text/javascript" src="/static/easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="/static/easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="/static/js/public.js"></script>
+<script type="text/javascript" src="/static/js/index.js"></script>
+</body>
+</html>

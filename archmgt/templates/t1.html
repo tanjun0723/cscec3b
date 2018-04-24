@@ -1,0 +1,66 @@
+<!--用户管理数据表格-->
+<table id="dagzlc"></table>
+<!--共享文档模块的工具栏 -->
+{% if username is not None %}
+<div id="dagzlc_tool" style="padding:5px;">
+	<div style="margin-bottom:5px;">
+		<a href="#" class="easyui-linkbutton" iconCls="icon-upload" plain="true" onclick="dagzlc_tool.add();">上传</a>
+		|<a href="#" class="easyui-linkbutton" iconCls="icon-edit-new" plain="true" onclick="dagzlc_tool.edit();">修改</a>
+		|<a href="#" class="easyui-linkbutton" iconCls="icon-delete-new" plain="true" onclick="dagzlc_tool.remove();">删除</a>
+        |<a href="#" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="dagzlc_tool.reload();">刷新</a>
+		|<a href="#" class="easyui-linkbutton" iconCls="icon-redo" plain="true" onclick="dagzlc_tool.redo();">取消选择</a>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;">
+        文档名称：<input type="text" id="dagzlcs1">
+		<button href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="dagzlc_tool.search();">查询</button>
+        <button href="#" class="easyui-linkbutton" iconCls="icon-clear" onclick="dagzlc_tool.clear();">清空</button>
+	</div>
+	<div style="padding:0 0 0 7px;color:#333;"></div>
+</div>
+{% endif %}
+<!-- add form -->
+<form id="form_dagzlc" style="padding:15px 35px;" method="post" enctype="multipart/form-data" >{% csrf_token %}
+	<table>
+        <input type="hidden" name="id" id="dagzlcid" ></input></td>
+        <tr>
+        <td>全宗号:</td>
+        <td><input name="devicename" id="dagzlcparam1" ></input></td>
+        </tr>
+        <tr>
+        <td>型号:</td>
+        <td><input name="model" id="dagzlcparam2" ></input></td>
+        </tr>
+        <tr>
+        <td>序列号:</td>
+        <td><input name="serialnumber" id="dagzlcparam3" ></input></td>
+        </tr>
+        <tr>
+        <td>规格:</td>
+        <td><input name="standard" id="dagzlcparam4" ></input></td>
+        </tr>
+        <tr>
+        <td>数量:</td>
+        <td><input name="amount" id="dagzlcparam5" ></input></td>
+        </tr>
+        <td>出库-1:</td>
+        <td><input name="depot1" id="dagzlcparam6" ></input></td>
+        </tr>
+        <td>出库-2:</td>
+        <td><input name="depot2" id="dagzlcparam7" ></input></td>
+        </tr>
+        <td>出库-3:</td>
+        <td><input name="depot3" id="dagzlcparam8" ></input></td>
+        </tr>
+        <tr>
+        <td>单位:</td>
+        <td><input name="unit" id="dagzlcparam9" ></input></td>
+        </tr>
+        <tr>
+        <td>备注:</td>
+        <td><input name="comments" id="dagzlcparam10" ></input></td>
+        </tr>
+	</table>
+</form>
+<!-- ./add form -->
+<script type="text/javascript" src="/static/js/public.js"></script>
+<script type="text/javascript" src="/static/js/t1.js"></script>
